@@ -54,6 +54,8 @@ class Navbar extends React.Component {
 
     render() {
 
+        
+
         const NavbarWrapper = styled.div`
             position: absolute;
             z-index: 1;
@@ -119,6 +121,89 @@ class Navbar extends React.Component {
         `
 
         const NavInner = styled.div`
+        .ancora{
+            z-index: 95;
+            position: relative;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.5);
+            overflow: hidden;
+            text-decoration: none;
+            letter-spacing: 1px;
+            color: white;
+            text-align: center;
+            font-weight: 400;
+            width: 50px;
+            height: 20px;
+            transition: 1s;
+            -webkit-box-reflect: below 1px linear-gradient(tranparent, #0004);
+        }
+        .ancora:hover{
+            background: #04e5e5;
+            box-shadow: 0 0 10px #04e5e5;
+            0 0 30px #04e5e5;
+            0 0 60px #04e5e5;
+            0 0 100px #04e5e5;
+        }
+        .ancora::before{
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 500%;
+            background: #04e5e5;
+            transition: 1s;
+            animation: animate 2s linear infinite;
+        }
+        .ancora:hover::before{
+            width: 100%;
+        }
+
+        .ancora::after{
+            content: '';
+            position: absolute;
+            inset: 4px;
+            background: #333;
+        }
+        .ancora:hover::after{
+            background: #333;
+            color: red;
+        }
+
+        .spanBotao{
+            position: relative;
+            z-index: 91;
+            font-size: 0.7em;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.5s;
+            color: #04e5e5;
+        }
+
+
+        .ancora:hover .spanBotao{
+            z-index: 91;
+            letter-spacing: 3px;
+            opacity: 1;
+            color: #04e5e5;
+        }
+
+        @keyframes animate {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{transform rotate(360deg);}
+        }
+
+        @media (max-width: 500px) {
+          .ancora{
+            width: 30px;
+            height: 20px;
+          }
+          
+        }
         a{
             color: #fff;
             padding: 10px;
@@ -166,7 +251,7 @@ class Navbar extends React.Component {
                         <NavInner className={`navbar-collapse collapse ${this.state.collapse === true ? 'show' : ''}`}>
                             <div className="navbar-nav">{this.navItems()}</div>
                             <div className='centro'>
-                                <a className='centr' href='/rastreio'>Rastreador</a>  
+                            <a className='ancora' target="_blank" href='https://webck.com.br/portifolio/'><span className='spanBotao'>Rastreador</span></a>
                             </div>
                         </NavInner>
                     </Nav>
